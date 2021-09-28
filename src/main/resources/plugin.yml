@@ -1,0 +1,5 @@
+name: Friends
+main: dev.hawu.plugins.friends.FriendsPlugin
+version: 1.0-SNAPSHOT
+description: Simple server-side friends system.
+depend: [MultiJVMLang]

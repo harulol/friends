@@ -7,7 +7,7 @@ import groovy.transform.CompileStatic
 import org.bukkit.plugin.java.JavaPlugin
 
 @CompileStatic
-class FriendsPlugin extends JavaPlugin {
+final class FriendsPlugin extends JavaPlugin {
 
     private static I18n i18n
 
@@ -15,6 +15,7 @@ class FriendsPlugin extends JavaPlugin {
     void onEnable() {
         Constants.setPlugin this
         i18n = new I18n()
+        UserMap.init()
     }
 
     static String tl(final String key, final Pair<?, ?>... pairs) {
