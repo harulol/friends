@@ -1,0 +1,31 @@
+name: Gradle CI
+on:
+  push:
+    branches:
+      - '*'
+    paths-ignore:
+      - '*.md'
+      - 'LICENSE'
+  pull_request:
+    branches:
+      - '*'
+    paths-ignore:
+      - '*.md'
+      - 'LICENSE'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2
+      - name: Grant run permissions
+        run: chmod +x gradlew
+      - name: Build and shadow
+        run: ./gradlew build shadowJar
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./build/libs/*.jar
+          name: Aritfacts
