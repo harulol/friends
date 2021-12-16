@@ -1,7 +1,7 @@
 plugins {
     groovy
     java
-    id("com.github.johnrengelman.shadow") version "7.0.0"
+    id("com.github.johnrengelman.shadow") version "7.1.1"
 }
 
 group = "dev.hawu.plugins"
